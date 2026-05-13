@@ -61,9 +61,9 @@ _DEME_ is now available as a Python package, _pyDEME_. It is quick to install an
 
 To install _pyDEME_, use a Linux machine, install CUDA if you do not already have it. Useful installation instructions may be found [here](https://developer.nvidia.com/cuda-downloads). 
 
-Some additional troubleshooting tips for getting CUDA ready:
-
-- I recommend getting the newest CUDA. But note that the recent releases CUDA 12.1, 12.2 and 12.3 appear to cause troubles with jitify and you should not use them with DEME.
+- CUDA 12.8 is recommended. Versions older than 12.8 generally work, but note there are scattered bugged versions such as 11.3, 12.1, 12.2, 12.3 etc.
+  - Avoid CUDA 13.0+. Currently version 13.0+ results in extremely slow just-in-time compilation. This may be fixed in future versions of DEME.
+  - On Linux, do not go above GCC 15+ because its glibc might bring math function conflicts with CUDA. In general, GCC 11 is recommended and if you use Ubuntu, simply go version 22.04 and do not try 26.04.
 
 Once CUDA is ready, you can `pip` install _pyDEME_. In your conda environement, do
 ```
@@ -73,15 +73,7 @@ conda install cmake
 pip3 install DEME
 ```
 
-~~You can also install pyDEME via `conda install`:~~ (Please don't use `conda install` for now, it is not yet behaving correctly)
-
-~~`conda create -n pyDEME python=3.11`~~
-
-~~`conda activate pyDEME`~~
-
-~~`conda install -c projectchrono pydeme`~~
-
-`pyDEME` can be replaced with an environement name of your choice. Other Python versions other than 3.11 should work as well.
+`pyDEME` can be replaced with an environement name of your choice. Other older Python versions other than 3.11 should work as well.
 
 Then [Python scripts](https://github.com/projectchrono/DEM-Engine/tree/pyDEME_demo/src/demo) can be executed in this environment. To understand the content of each Python demo, refer to the explanations of the C++ demos with the same names in <a href="#examples">Numerical examples</a> section.
 
